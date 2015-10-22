@@ -208,6 +208,7 @@ module Rack
                 k,v = param.split('=', 2)
                 k.strip!
                 v.strip!
+                v.gsub!(/\"|\'/, '') unless v.nil?
                 encoding = Encoding.find v if k == CHARSET
               end
             end
